@@ -124,6 +124,7 @@ class Agent(object):
                     'metrics': metrics,
                     'episode': episode,
                     'info': accumulated_info,
+                    'training': self.training
                 }
                 callbacks.on_step_end(episode_step, step_logs)
                 episode_step += 1
@@ -143,6 +144,7 @@ class Agent(object):
                         'episode_reward': episode_reward,
                         'nb_episode_steps': episode_step,
                         'nb_steps': self.step,
+                        'training': self.training
                     }
                     callbacks.on_episode_end(episode, episode_logs)
 
@@ -258,6 +260,7 @@ class Agent(object):
                     'reward': reward,
                     'episode': episode,
                     'info': accumulated_info,
+                    'training': self.training
                 }
                 callbacks.on_step_end(episode_step, step_logs)
                 episode_step += 1
@@ -275,6 +278,7 @@ class Agent(object):
             episode_logs = {
                 'episode_reward': episode_reward,
                 'nb_steps': episode_step,
+                'training': self.training
             }
             callbacks.on_episode_end(episode, episode_logs)
         callbacks.on_train_end()
